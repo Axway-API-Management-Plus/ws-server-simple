@@ -1,0 +1,79 @@
+= Simple WebSocket Server
+:revnumber: 0.1.0
+:toc:
+:sectnums:
+:source-highlighter: prettify
+ifndef::env-github[]
+:icons: font
+:icon-set: far
+endif::[]
+ifdef::env-github[]
+:outfilesuffix: .adoc
+:!toc-title:
+:!sectnums:
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+
+:proj-version: {revnumber}
+
+image:https://img.shields.io/github/license/Axway-API-Management-Plus/ws-server-simple?style=plastic[]
+image:https://img.shields.io/github/v/release/Axway-API-Management-Plus/ws-server-simple?style=plastic[]
+
+
+== About the Tool
+
+The tool is a simple WebSocket server.
+It can be used to test WebSocket listeners of an API Gateway.
+Check Axway API Gateway documentation to https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_policydev/apigw_gw_instances/general_websocket/index.html[configure WebSocket connections].
+
+This WebSocket server can be used in combination with the https://github.com/Axway-API-Management-Plus/ws-client-simple[simple WebSocket client].
+
+== Usage
+
+To start the WebSocket server to listen to the URL `ws://localhost:8025/echo` use the following command.
+The expects a text message and echos the same text message back to the client.
+
+[source,shell,subs="verbatim,attributes"]
+----
+$ java -jar ws-simple-server-{proj-version}-jar-with-dependencies.jar
+März 29, 2023 12:47:54 PM org.glassfish.grizzly.http.server.NetworkListener start
+INFORMATION: Started listener bound to [0.0.0.0:8025]
+März 29, 2023 12:47:54 PM org.glassfish.grizzly.http.server.HttpServer start
+INFORMATION: [HttpServer] Started.
+März 29, 2023 12:47:54 PM org.glassfish.tyrus.server.Server start
+INFORMATION: WebSocket Registered apps: URLs all start with ws://localhost:8025
+März 29, 2023 12:47:54 PM org.glassfish.tyrus.server.Server start
+INFORMATION: WebSocket server started.
+INFO  12:47:54.288 - WebSocket server started: localhost:8025
+----
+
+
+.Show help screen
+[source,shell,subs="verbatim,attributes"]
+----
+$ java -jar ws-simple-server-{proj-version}-jar-with-dependencies.jar -h
+Usage: ws-server-simple [options]
+  Options:
+    -h, --help
+      Show help screen.
+    --host
+      Hostname of the WebSocket server
+      Default: localhost
+    --port
+      Port of the WebSocket server
+      Default: 8025
+----
+
+
+== Contributing
+Please read https://github.com/Axway-API-Management-Plus/Common/blob/master/Contributing.md[Contributing] for details on our code of conduct, and the process for submitting pull requests to us.
+
+== Team
+image:https://raw.githubusercontent.com/Axway-API-Management-Plus/Common/master/img/AxwayLogoSmall.png[Axway Logo] Axway Team
+
+== License
+link:./LICENSE[Apache License 2.0]
